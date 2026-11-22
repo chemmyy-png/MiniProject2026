@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Designer Neutral & Cyber Color Palette -->
+    <color name="white">#FFFFFF</color>
+    <color name="shadow">#E0C9A3A8</color>
+    <color name="cream">#E4D9CC</color>
+    <color name="pink">#C9A3A8</color>
+    <color name="dark_pink">#8B3A62</color>
+    <color name="light_blue">#6B7C93</color>
+    <color name="navy">#243A5E</color>
+    <color name="charcoal">#333333</color>
+    <color name="tint_charcoal">#545353</color>
+
+    <!-- Trivia Challenge UI Palette -->
+    <color name="quiz_purple_header">#3B2880</color>
+    <color name="quiz_bg_light">#F6F5FC</color>
+    <color name="quiz_purple_primary">#4A30A0</color>
+    <color name="quiz_purple_light">#EAE6F8</color>
+    <color name="quiz_badge_purple">#DFD8F7</color>
+    <color name="quiz_letter_badge">#DDD5F3</color>
+    <color name="quiz_green_bg">#E2F6EC</color>
+    <color name="quiz_green_stroke">#10B981</color>
+    <color name="quiz_green_text">#059669</color>
+    <color name="quiz_red_bg">#FEE2E2</color>
+    <color name="quiz_red_stroke">#EF4444</color>
+    <color name="quiz_red_text">#DC2626</color>
+    <color name="quiz_progress_track">#EAE6F8</color>
+</resources>

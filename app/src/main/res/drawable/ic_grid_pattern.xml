@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="180dp"
+    android:viewportWidth="360"
+    android:viewportHeight="640">
+
+    <path
+        android:strokeColor="#40FFFFFF"
+        android:strokeWidth="1"
+        android:pathData="
+            M 0,24 H 360 M 0,48 H 360 M 0,72 H 360 M 0,96 H 360 M 0,120 H 360
+            M 0,144 H 360 M 0,168 H 360 M 0,192 H 360 M 0,216 H 360 M 0,240 H 360
+            M 0,264 H 360 M 0,288 H 360 M 0,312 H 360 M 0,336 H 360 M 0,360 H 360
+            M 0,384 H 360 M 0,408 H 360 M 0,432 H 360 M 0,456 H 360 M 0,480 H 360
+            M 0,504 H 360 M 0,528 H 360 M 0,552 H 360 M 0,576 H 360 M 0,600 H 360
+            M 0,624 H 360
+            M 24,0 V 640 M 48,0 V 640 M 72,0 V 640 M 96,0 V 640 M 120,0 V 640
+            M 144,0 V 640 M 168,0 V 640 M 192,0 V 640 M 216,0 V 640 M 240,0 V 640
+            M 264,0 V 640 M 288,0 V 640 M 312,0 V 640 M 336,0 V 640" />
+</vector>

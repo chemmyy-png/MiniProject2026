@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 1. Base Linear Gradient (Steel Blue -> Deep Navy -> Dusty Rose) -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="315"
+                android:startColor="#6B7C93"
+                android:centerColor="#243A5E"
+                android:endColor="#C9A3A8"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- 2. Soft Dusty Rose Glow on Top-Right -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerX="85%"
+                android:centerY="25%"
+                android:gradientRadius="350dp"
+                android:startColor="#90C9A3A8"
+                android:endColor="#00000000"
+                android:type="radial" />
+        </shape>
+    </item>
+
+    <!-- 3. Soft Rose Glow on Bottom-Right -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerX="75%"
+                android:centerY="85%"
+                android:gradientRadius="300dp"
+                android:startColor="#80C9A3A8"
+                android:endColor="#00000000"
+                android:type="radial" />
+        </shape>
+    </item>
+
+    <!-- 4. Cyber Grid Overlay -->
+    <item android:drawable="@drawable/ic_grid_pattern" />
+
+    <!-- 5. Pixel Sparkles & Stars Overlay -->
+    <item android:drawable="@drawable/ic_pixel_sparkles" />
+
+</layer-list>

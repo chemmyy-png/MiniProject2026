@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="180dp"
+    android:viewportWidth="360"
+    android:viewportHeight="640">
+
+    <!-- Top Left Big Pixel Star Sparkle -->
+    <path
+        android:fillColor="#E0FFFFFF"
+        android:pathData="
+            M 35,60 h 6 v 6 h -6 z
+            M 32,66 h 12 v 6 h -12 z
+            M 20,72 h 36 v 6 h -36 z
+            M 32,78 h 12 v 6 h -12 z
+            M 35,84 h 6 v 6 h -6 z
+            M 35,36 h 6 v 18 h -6 z
+            M 35,96 h 6 v 18 h -6 z
+            M 5,72 h 9 v 6 h -9 z
+            M 62,72 h 9 v 6 h -9 z" />
+
+    <!-- Top Right Sparkle (+) -->
+    <path
+        android:fillColor="#D0FFFFFF"
+        android:pathData="
+            M 325,120 h 4 v 12 h -4 z
+            M 321,124 h 12 v 4 h -12 z" />
+
+    <!-- Mid-Right Pixel Star -->
+    <path
+        android:fillColor="#D0FFFFFF"
+        android:pathData="
+            M 330,220 h 4 v 4 h -4 z
+            M 328,224 h 8 v 4 h -8 z
+            M 320,228 h 24 v 4 h -24 z
+            M 328,232 h 8 v 4 h -8 z
+            M 330,236 h 4 v 4 h -4 z" />
+
+    <!-- Bottom Left Large Pixel Star Sparkle -->
+    <path
+        android:fillColor="#E0FFFFFF"
+        android:pathData="
+            M 55,540 h 6 v 6 h -6 z
+            M 52,546 h 12 v 6 h -12 z
+            M 40,552 h 36 v 6 h -36 z
+            M 52,558 h 12 v 6 h -12 z
+            M 55,564 h 6 v 6 h -6 z
+            M 55,516 h 6 v 18 h -6 z
+            M 55,576 h 6 v 18 h -6 z
+            M 25,552 h 9 v 6 h -9 z
+            M 82,552 h 9 v 6 h -9 z" />
+
+    <!-- Scattered Small Pixel Pluses (+) -->
+    <!-- Top Left small (+) -->
+    <path
+        android:fillColor="#C0FFFFFF"
+        android:pathData="
+            M 20,25 h 3 v 9 h -3 z
+            M 17,28 h 9 v 3 h -9 z" />
+
+    <!-- Top Right small (+) -->
+    <path
+        android:fillColor="#C0FFFFFF"
+        android:pathData="
+            M 340,30 h 3 v 9 h -3 z
+            M 337,33 h 9 v 3 h -9 z" />
+
+    <!-- Mid Left (+) -->
+    <path
+        android:fillColor="#C0FFFFFF"
+        android:pathData="
+            M 42,210 h 3 v 9 h -3 z
+            M 39,213 h 9 v 3 h -9 z" />
+
+    <!-- Mid Left lower (+) -->
+    <path
+        android:fillColor="#C0FFFFFF"
+        android:pathData="
+            M 25,320 h 3 v 9 h -3 z
+            M 22,323 h 9 v 3 h -9 z" />
+
+    <!-- Mid Right (+) -->
+    <path
+        android:fillColor="#C0FFFFFF"
+        android:pathData="
+            M 315,350 h 3 v 9 h -3 z
+            M 312,353 h 9 v 3 h -9 z" />
+
+    <!-- Bottom Right (+) -->
+    <path
+        android:fillColor="#C0FFFFFF"
+        android:pathData="
+            M 320,530 h 3 v 9 h -3 z
+            M 317,533 h 9 v 3 h -9 z" />
+
+    <!-- Bottom Left small (+) -->
+    <path
+        android:fillColor="#C0FFFFFF"
+        android:pathData="
+            M 115,580 h 3 v 9 h -3 z
+            M 112,583 h 9 v 3 h -9 z" />
+
+    <!-- Single pixel dots -->
+    <path
+        android:fillColor="#B0FFFFFF"
+        android:pathData="
+            M 15,140 h 3 v 3 h -3 z
+            M 335,170 h 3 v 3 h -3 z
+            M 30,440 h 3 v 3 h -3 z
+            M 330,460 h 3 v 3 h -3 z
+            M 210,590 h 3 v 3 h -3 z" />
+
+</vector>

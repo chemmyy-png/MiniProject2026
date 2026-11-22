@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Quiz Assessment</string>
+
+    <!-- Login Screen Strings -->
+    <string name="header_test_knowledge">Test your knowledge!</string>
+    <string name="label_name">NAME</string>
+    <string name="hint_name">enter your name</string>
+    <string name="label_student_id">STUDENT ID</string>
+    <string name="hint_student_id">XXXXXXXXXXX</string>
+    <string name="label_department">DEPARTMENT</string>
+    <string name="label_course_name">COURSE NAME</string>
+    <string name="hint_course_name">eg. Creative Multimedia</string>
+    <string name="label_semester">SEMESTER</string>
+    <string name="btn_start_assessment">Start Assessment</string>
+
+    <!-- Quiz Screen Strings -->
+    <string name="header_trivia_challenge">Trivia Challenge</string>
+    <string name="label_live_questions_loaded">Live questions loaded</string>
+    <string name="label_question_counter_default">Question 1 of 10</string>
+    <string name="label_score_default">Score: 0</string>
+    <string name="label_progress_percent_default">10%</string>
+    <string name="label_category_default">Science</string>
+    <string name="label_loading_questions">Loading questions...</string>
+    <string name="label_option_a">Option A</string>
+    <string name="label_option_b">Option B</string>
+    <string name="label_option_c">Option C</string>
+    <string name="label_option_d">Option D</string>
+    <string name="btn_previous">Previous</string>
+    <string name="btn_next">Next</string>
+    <string name="label_correct">Correct!</string>
+    <string name="label_incorrect">Incorrect</string>
+    <string name="btn_continue">Continue</string>
+
+    <!-- Result Screen Strings -->
+    <string name="header_your_results">Your results</string>
+    <string name="label_correct_count">Correct</string>
+    <string name="label_incorrect_count">Incorrect</string>
+    <string name="header_answer_breakdown">Answer breakdown</string>
+    <string name="btn_restart_assessment">Restart assessment</string>
+
+    <!-- Accessibility Descriptions -->
+    <string name="desc_back">Back</string>
+    <string name="desc_check">Check</string>
+    <string name="desc_close">Close</string>
+    <string name="desc_feedback_icon">Feedback Icon</string>
+    <string name="desc_loading_mascot">Loading mascot</string>
+
+    <!-- Department dropdown options -->
+    <string-array name="department_array">
+        <item>Select Department</item>
+        <item>Electrical Engineering</item>
+        <item>Mechanical Engineering</item>
+        <item>Computer and Information</item>
+    </string-array>
+
+    <!-- Semester dropdown options -->
+    <string-array name="semester_array">
+        <item>Select Semester</item>
+        <item>Semester 1</item>
+        <item>Semester 2</item>
+        <item>Semester 3</item>
+        <item>Semester 4</item>
+        <item>Semester 5</item>
+    </string-array>
+</resources>

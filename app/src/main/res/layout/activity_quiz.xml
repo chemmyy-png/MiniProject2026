@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_grid"
+        android:fitsSystemWindows="true">
+
+        <!-- Top Header Bar -->
+        <RelativeLayout
+            android:id="@+id/header_bar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/desc_back"
+                android:padding="4dp"
+                android:src="@drawable/ic_back_arrow" />
+
+            <TextView
+                android:id="@+id/tv_header_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/aldrich"
+                android:shadowColor="@color/shadow"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="16"
+                android:text="@string/header_trivia_challenge"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Loading Container with Cute Pixel Mascot -->
+        <LinearLayout
+            android:id="@+id/loading_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_bar">
+
+            <ImageView
+                android:id="@+id/iv_cute_loader"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/desc_loading_mascot"
+                android:src="@drawable/ic_cute_pixel_loader" />
+
+            <TextView
+                android:id="@+id/tv_loading_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/pixelify_sans"
+                android:shadowColor="@color/shadow"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="12"
+                android:text="@string/label_loading_questions"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Scrollable Main Content -->
+        <ScrollView
+            android:id="@+id/quiz_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_bar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <!-- Live status pill -->
+                <TextView
+                    android:id="@+id/tv_live_pill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_green"
+                    android:fontFamily="@font/pixelify_sans"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="@string/label_live_questions_loaded"
+                    android:textColor="@color/quiz_green_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Question Counter -->
+                <TextView
+                    android:id="@+id/tv_question_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/pixelify_sans"
+                    android:shadowColor="@color/shadow"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="12"
+                    android:text="@string/label_question_counter_default"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_live_pill" />
+
+                <!-- Score Badge -->
+                <TextView
+                    android:id="@+id/tv_score_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_purple"
+                    android:fontFamily="@font/pixelify_sans"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/label_score_default"
+                    android:textColor="@color/navy"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_question_counter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_question_counter" />
+
+                <!-- Category Tag -->
+                <ProgressBar
+                    android:id="@+id/pb_question_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:max="100"
+                    android:progress="10"
+                    android:progressDrawable="@drawable/bg_pill_purple"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_progress_percent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_progress_percent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_progress_percent" />
+
+                <TextView
+                    android:id="@+id/tv_progress_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/pixelify_sans"
+                    android:text="@string/label_progress_percent_default"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_question_counter" />
+
+                <TextView
+                    android:id="@+id/tv_category_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_pill_purple"
+                    android:fontFamily="@font/pixelify_sans"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/label_category_default"
+                    android:textColor="@color/navy"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_progress_percent" />
+
+                <!-- Question Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="#80FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_category_tag">
+
+                    <TextView
+                        android:id="@+id/tv_question_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aldrich"
+                        android:lineSpacingExtra="4dp"
+                        android:padding="20dp"
+                        android:text="@string/label_loading_questions"
+                        android:textColor="@color/navy"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- Option A -->
+                <RelativeLayout
+                    android:id="@+id/layout_option_a"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_option_default"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_question">
+
+                    <TextView
+                        android:id="@+id/badge_a"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_letter_badge"
+                        android:fontFamily="@font/pixelify_sans"
+                        android:gravity="center"
+                        android:text="A"
+                        android:textColor="@color/navy"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_option_a_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@+id/iv_option_a_check"
+                        android:layout_toEndOf="@+id/badge_a"
+                        android:fontFamily="@font/pixelify_sans"
+                        android:text="@string/label_option_a"
+                        android:textColor="@color/navy"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_option_a_check"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/desc_check"
+                        android:src="@drawable/ic_check_small"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <!-- Option B -->
+                <RelativeLayout
+                    android:id="@+id/layout_option_b"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_option_default"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_option_a">
+
+                    <TextView
+                        android:id="@+id/badge_b"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_letter_badge"
+                        android:fontFamily="@font/pixelify_sans"
+                        android:gravity="center"
+                        android:text="B"
+                        android:textColor="@color/navy"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_option_b_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@+id/iv_option_b_check"
+                        android:layout_toEndOf="@+id/badge_b"
+                        android:fontFamily="@font/pixelify_sans"
+                        android:text="@string/label_option_b"
+                        android:textColor="@color/navy"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_option_b_check"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/desc_check"
+                        android:src="@drawable/ic_check_small"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <!-- Option C -->
+                <RelativeLayout
+                    android:id="@+id/layout_option_c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_option_default"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_option_b">
+
+                    <TextView
+                        android:id="@+id/badge_c"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_letter_badge"
+                        android:fontFamily="@font/pixelify_sans"
+                        android:gravity="center"
+                        android:text="C"
+                        android:textColor="@color/navy"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_option_c_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@+id/iv_option_c_check"
+                        android:layout_toEndOf="@+id/badge_c"
+                        android:fontFamily="@font/pixelify_sans"
+                        android:text="@string/label_option_c"
+                        android:textColor="@color/navy"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_option_c_check"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/desc_check"
+                        android:src="@drawable/ic_check_small"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <!-- Option D -->
+                <RelativeLayout
+                    android:id="@+id/layout_option_d"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_option_default"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_option_c">
+
+                    <TextView
+                        android:id="@+id/badge_d"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_letter_badge"
+                        android:fontFamily="@font/pixelify_sans"
+                        android:gravity="center"
+                        android:text="D"
+                        android:textColor="@color/navy"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_option_d_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@+id/iv_option_d_check"
+                        android:layout_toEndOf="@+id/badge_d"
+                        android:fontFamily="@font/pixelify_sans"
+                        android:text="@string/label_option_d"
+                        android:textColor="@color/navy"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_option_d_check"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/desc_check"
+                        android:src="@drawable/ic_check_small"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <!-- Persistent Navigation Buttons (Previous & Next) -->
+                <LinearLayout
+                    android:id="@+id/layout_nav_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_option_d">
+
+                    <Button
+                        android:id="@+id/btn_previous"
+                        style="@style/Button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_previous"
+                        android:textColor="@color/white"
+                        app:backgroundTint="@color/navy" />
+
+                    <Button
+                        android:id="@+id/btn_next_main"
+                        style="@style/Button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_next"
+                        android:textColor="@color/white"
+                        app:backgroundTint="@color/navy" />
+                </LinearLayout>
+
+                <!-- Feedback Bottom Card (Shows on Answer Selection) -->
+                <LinearLayout
+                    android:id="@+id/card_feedback"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_feedback_card"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_nav_bar">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp">
+
+                        <ImageView
+                            android:id="@+id/iv_feedback_icon"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="@string/desc_feedback_icon"
+                            android:src="@drawable/ic_check_circle" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="12dp"
+                            android:layout_toStartOf="@+id/btn_close_feedback"
+                            android:layout_toEndOf="@+id/iv_feedback_icon"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_feedback_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pixelify_sans"
+                                android:text="@string/label_correct"
+                                android:textColor="@color/quiz_green_text"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_feedback_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pixelify_sans"
+                                android:textColor="@color/navy"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/btn_close_feedback"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/desc_close"
+                            android:src="@drawable/ic_close" />
+                    </RelativeLayout>
+
+                    <!-- Continue Button -->
+                    <Button
+                        android:id="@+id/btn_continue"
+                        style="@style/Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btn_continue"
+                        android:textColor="@color/white"
+                        app:backgroundTint="@color/navy" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

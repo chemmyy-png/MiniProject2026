@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- Sparkle 1 (Top Left) -->
+    <path
+        android:fillColor="#FFE680"
+        android:pathData="
+            M 10,8 h 2 v 2 h -2 z
+            M 8,10 h 6 v 2 h -6 z
+            M 10,12 h 2 v 2 h -2 z" />
+
+    <!-- Sparkle 2 (Top Right) -->
+    <path
+        android:fillColor="#FFD1DC"
+        android:pathData="
+            M 52,6 h 2 v 2 h -2 z
+            M 50,8 h 6 v 2 h -6 z
+            M 52,10 h 2 v 2 h -2 z" />
+
+    <!-- Computer Monitor Outer Case -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 16,16 h 32 v 28 h -32 z" />
+
+    <!-- Screen Bezel (Dark Navy) -->
+    <path
+        android:fillColor="#243A5E"
+        android:pathData="
+            M 20,20 h 24 v 20 h -24 z" />
+
+    <!-- Cute Pixel Face (Happy Eyes ^  ^) -->
+    <path
+        android:fillColor="#C9A3A8"
+        android:pathData="
+            M 25,26 h 4 v 2 h -4 z
+            M 27,24 h 2 v 2 h -2 z
+            M 35,26 h 4 v 2 h -4 z
+            M 37,24 h 2 v 2 h -2 z" />
+
+    <!-- Pink Cheeks -->
+    <path
+        android:fillColor="#FF99B2"
+        android:pathData="
+            M 23,30 h 4 v 2 h -4 z
+            M 37,30 h 4 v 2 h -4 z" />
+
+    <!-- Cute Smile -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 31,31 h 2 v 2 h -2 z" />
+
+    <!-- Computer Stand -->
+    <path
+        android:fillColor="#E4D9CC"
+        android:pathData="
+            M 28,44 h 8 v 4 h -8 z
+            M 20,48 h 24 v 4 h -24 z" />
+
+    <!-- Keyboard -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 14,54 h 36 v 6 h -36 z" />
+    <path
+        android:fillColor="#243A5E"
+        android:pathData="
+            M 18,56 h 4 v 2 h -4 z
+            M 24,56 h 4 v 2 h -4 z
+            M 30,56 h 10 v 2 h -10 z
+            M 42,56 h 4 v 2 h -4 z" />
+
+</vector>

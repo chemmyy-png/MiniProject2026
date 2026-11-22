@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="item"
+            type="com.example.miniproject.QuestionBreakdown" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_option_default"
+        android:padding="12dp">
+
+        <!-- Number badge -->
+        <TextView
+            android:id="@+id/tv_badge_number"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_letter_badge"
+            android:fontFamily="@font/pixelify_sans"
+            android:gravity="center"
+            android:text="@{item.number}"
+            android:textColor="@color/navy"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="01" />
+
+        <!-- Question Info Column -->
+        <LinearLayout
+            android:id="@+id/info_column"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/status_container"
+            app:layout_constraintStart_toEndOf="@+id/tv_badge_number"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Category Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:text="@{item.category}"
+                android:textColor="@color/navy"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Geography" />
+
+            <!-- Your Answer -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:text="@{`Your answer: ` + item.userAnswer}"
+                android:textColor="@color/tint_charcoal"
+                android:textSize="13sp"
+                tools:text="Your answer: Paris" />
+
+            <!-- Correct Answer (Visible only if incorrect) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:text="@{`Correct answer: ` + item.correctAnswer}"
+                android:textColor="@color/quiz_red_text"
+                android:textSize="13sp"
+                android:visibility="@{item.correct ? View.GONE : View.VISIBLE}"
+                tools:text="Correct answer: Mars" />
+        </LinearLayout>
+
+        <!-- Status Badge (Correct tag vs Incorrect icon) -->
+        <LinearLayout
+            android:id="@+id/status_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_green"
+                android:fontFamily="@font/pixelify_sans"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="@string/label_correct_count"
+                android:textColor="@color/quiz_green_text"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="@{item.correct ? View.VISIBLE : View.GONE}" />
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="@string/label_incorrect"
+                android:src="@drawable/ic_cross_circle"
+                android:visibility="@{item.correct ? View.GONE : View.VISIBLE}" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
