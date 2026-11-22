@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="160dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- Outer Pixel Octagon Frame (Blocky White Frame) -->
+    <path
+        android:fillColor="#E0FFFFFF"
+        android:pathData="
+            M 20,4 h 24 v 4 h -24 z
+            M 12,8 h 8 v 4 h -8 z
+            M 44,8 h 8 v 4 h -8 z
+            M 8,12 h 4 v 8 h -4 z
+            M 52,12 h 4 v 8 h -4 z
+            M 4,20 h 4 v 24 h -4 z
+            M 56,20 h 4 v 24 h -4 z
+            M 8,44 h 4 v 8 h -4 z
+            M 52,44 h 4 v 8 h -4 z
+            M 12,52 h 8 v 4 h -8 z
+            M 44,52 h 8 v 4 h -8 z
+            M 20,56 h 24 v 4 h -24 z" />
+
+    <!-- Inner Pixel Glass Fill -->
+    <path
+        android:fillColor="#80FFFFFF"
+        android:pathData="
+            M 20,8 h 24 v 48 h -24 z
+            M 12,12 h 40 v 40 h -40 z
+            M 8,20 h 48 v 24 h -48 z" />
+
+</vector>

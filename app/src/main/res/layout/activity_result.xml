@@ -86,12 +86,14 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Student" />
 
-                <!-- Circular Score Ring Container -->
+                <!-- Circular Score Ring Container with 8-bit Pixel Octagon Frame -->
                 <RelativeLayout
                     android:id="@+id/layout_score_ring"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/ic_pixel_score_frame"
+                    android:padding="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_student_name">
@@ -118,10 +120,10 @@
                             android:id="@+id/tv_percentage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/pixelify_sans"
+                            android:fontFamily="@font/silkscreen"
                             android:text="@{result.percentageText}"
                             android:textColor="@color/navy"
-                            android:textSize="32sp"
+                            android:textSize="28sp"
                             android:textStyle="bold"
                             tools:text="80%" />
 
@@ -131,7 +133,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/pixelify_sans"
                             android:text="@{result.scoreRatioText}"
-                            android:textColor="@color/white"
+                            android:textColor="@color/navy"
                             android:textSize="14sp"
                             tools:text="8 / 10 correct" />
                     </LinearLayout>
