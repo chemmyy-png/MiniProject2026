@@ -75,7 +75,6 @@ public class QuizActivity extends AppCompatActivity {
 
         binding.btnBack.setOnClickListener(v -> finish());
         binding.btnCloseFeedback.setOnClickListener(v -> binding.cardFeedback.setVisibility(View.GONE));
-        binding.btnContinue.setOnClickListener(v -> onContinueClicked());
 
         binding.btnPrevious.setOnClickListener(v -> onPreviousClicked());
         binding.btnNextMain.setOnClickListener(v -> onContinueClicked());
@@ -276,10 +275,8 @@ public class QuizActivity extends AppCompatActivity {
         // Configure Next / Submit button
         if (index == questionList.size() - 1) {
             binding.btnNextMain.setText("Finish Assessment");
-            binding.btnContinue.setText("Finish Assessment");
         } else {
             binding.btnNextMain.setText("Next");
-            binding.btnContinue.setText("Continue");
         }
 
         // Restore previously selected option if already answered

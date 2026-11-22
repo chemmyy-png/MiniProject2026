@@ -481,8 +481,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp">
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/iv_feedback_icon"
@@ -531,16 +530,6 @@
                             android:contentDescription="@string/desc_close"
                             android:src="@drawable/ic_close" />
                     </RelativeLayout>
-
-                    <!-- Continue Button -->
-                    <Button
-                        android:id="@+id/btn_continue"
-                        style="@style/Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/btn_continue"
-                        android:textColor="@color/white"
-                        app:backgroundTint="@color/navy" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
